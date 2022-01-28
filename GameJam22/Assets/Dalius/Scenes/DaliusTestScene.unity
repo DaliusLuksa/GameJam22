@@ -816,7 +816,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1739,6 +1739,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2156012295429704835, guid: c68c710a28c0fe040a2bb7b8dc1fbede, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 685316100}
     - target: {fileID: 5340304937451028557, guid: c68c710a28c0fe040a2bb7b8dc1fbede, type: 3}
       propertyPath: m_Name
       value: Game Manager
