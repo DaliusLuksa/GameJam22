@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5340304937451028557
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5340304937451028559}
+  - component: {fileID: 5340304937451028556}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5340304937451028559
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5340304937451028557}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5340304937451028556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5340304937451028557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29fff4d4f5b5d7b49a33f45574589182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DevilPlatformPrefabs:
+  - {fileID: 2137174580593800441, guid: cb542f865689e554eac55bcd810e5e78, type: 3}
+  - {fileID: 3058151703690039464, guid: 1c73a383e20dcfe498ea53a0ab92a6e5, type: 3}
+  - {fileID: 462763482475750291, guid: 71787e5d292390e45959542cb5cf5b2c, type: 3}
+  AngelPlatformPrefabs:
+  - {fileID: 8434300649137410276, guid: a7759a8005a63264a8ed874a3c168d01, type: 3}
+  - {fileID: 3840699819517737339, guid: 7169b55c1dc1b33458882dee8e23ca63, type: 3}
+  - {fileID: 7297958742503181640, guid: e6d4c589eeec9d34cb1029b0ba8cccbb, type: 3}
+  currentPlatformSpeed: 6
+  spawnPointX: 30
+  increasePlatformSpeedKey: 104
+  platformSpeedChange:
+    m_PersistentCalls:
+      m_Calls: []
