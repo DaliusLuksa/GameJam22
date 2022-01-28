@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5340304937451028559}
   - component: {fileID: 5340304937451028556}
+  - component: {fileID: 2156012295429704835}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -57,3 +58,15 @@ MonoBehaviour:
   platformSpeedChange:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2156012295429704835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5340304937451028557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0e3e673abd01a4b8c5d3be99a8240d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
