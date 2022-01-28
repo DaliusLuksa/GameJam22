@@ -5,20 +5,20 @@ using UnityEngine;
 public class GroundCheck : MonoBehaviour
 {
     public bool isGrounded;
-    public float offset = 0.1f;
+    public float offset = 1.5f;
     public Vector2 surfacePosition;
     ContactFilter2D filter;
-    Collider2D[] results = new Collider2D[1];
+    Collider2D[] results = new Collider2D[2];
 
     private void Update()
     {
         Vector2 point = transform.position + Vector3.down * offset;
         Vector2 size = new Vector2(transform.localScale.x, transform.localScale.y);
 
-        if (Physics2D.OverlapBox(point, size, 0, filter.NoFilter(), results) > 0)
+        if (Physics2D.OverlapBox(point, size, 0, filter.NoFilter(), results) > 1)
         {
             isGrounded = true;
-            surfacePosition = Physics2D.ClosestPoint(transform.position, results[0]);
+            surfacePosition = Physics2D.ClosestPoint(transform.position, results[1]);
         }
         else
         {

@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     public GroundCheck groundCheck;
     Rigidbody2D rb;
+    SpriteRenderer spriteRenderer;
     public float jumpHeight = 1f;
     public float horizontalSpeed = 1f;
     public float cancelRate = 100;
@@ -17,6 +18,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -25,6 +27,8 @@ public class Movement : MonoBehaviour
         float horizontalTranslation = Input.GetAxis("Horizontal") * horizontalSpeed * Time.deltaTime;
 
         transform.Translate(new Vector3(horizontalTranslation, 0, 0));
+        if (horizontalTranslation > 0 && spriteRenderer.flipX || horizontalTranslation < 0 && !spriteRenderer.flipX)
+            spriteRenderer.flipX = !spriteRenderer.flipX;
 
         if (Input.GetButtonDown("Jump") && groundCheck.isGrounded)
         {
@@ -56,5 +60,6 @@ public class Movement : MonoBehaviour
         {
             rb.AddForce(Vector2.down * cancelRate);
         }
+
     }
 }
