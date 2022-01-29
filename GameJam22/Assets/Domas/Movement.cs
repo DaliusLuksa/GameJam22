@@ -15,16 +15,21 @@ public class Movement : MonoBehaviour
     float jumpTime;
     bool jumping;
     bool jumpCancelled;
+    Animator animator;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         float horizontalTranslation = Input.GetAxis("Horizontal") * horizontalSpeed * Time.deltaTime;
+
 
         transform.Translate(new Vector3(horizontalTranslation, 0, 0));
         if (horizontalTranslation > 0 && spriteRenderer.flipX || horizontalTranslation < 0 && !spriteRenderer.flipX)
@@ -52,16 +57,23 @@ public class Movement : MonoBehaviour
                 jumping = false;
             }
         }
+        animator.SetBool("isRunning", horizontalTranslation != 0);
+        animator.SetBool("isJumping", jumping);
 
     }
     private void FixedUpdate()
     {
+        if (rb.velocity.y < 0)
+            animator.SetBool("isFalling", true);
+
         if (jumpCancelled && jumping && rb.velocity.y > 0) /*cancel jump*/
         {
             rb.AddForce(Vector2.down * cancelRate);
         }
         else if (groundCheck.isGrounded && rb.velocity.y < 0) /*snap to ground when is falling*/
         {
+            animator.SetBool("isFalling", false);
+            rb.velocity = new Vector2(rb.velocity.x, 0);
             transform.position = new Vector3(groundCheck.surfacePosition.x, groundCheck.surfacePosition.y, transform.position.z);
         }
 

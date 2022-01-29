@@ -13,21 +13,25 @@ public class Transformation : MonoBehaviour
     public UnityEvent<PlatformType> onPlayerFormChange = new UnityEvent<PlatformType>();
 
     SpriteRenderer spriteRenderer;
+    Animator animator;
 
     public bool IsAngel => isAngel;
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        animator.SetBool("isAngel", isAngel);
         if (Input.GetKeyDown(transformButton) && !isTransformDisabled)
         {
             changeForm();
         }
+
     }
 
     private void changeForm()
@@ -35,7 +39,7 @@ public class Transformation : MonoBehaviour
         isAngel = !isAngel;
 
         onPlayerFormChange.Invoke(isAngel ? PlatformType.Angel : PlatformType.Devil);
-
+        animator.SetTrigger("Transform");
         if (isAngel)
         {
             spriteRenderer.sprite = angelSprite;
