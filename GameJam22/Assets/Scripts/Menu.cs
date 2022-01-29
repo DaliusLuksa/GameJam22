@@ -1,12 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
     public void PlayButton()
     {
-        // Start the game
+        // Start the game by loading Main scene
+        SceneManager.LoadScene((int) Levels.Main);
     }
 
     public void SettingsButton()
