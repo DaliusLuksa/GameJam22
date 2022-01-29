@@ -7,6 +7,7 @@ public class Transformation : MonoBehaviour
     [SerializeField] private Sprite angelSprite;
     [SerializeField] private Sprite demonSprite;
     [SerializeField] bool isAngel = true;
+    private bool isTransformDisabled = false;
 
     [HideInInspector]
     public UnityEvent<PlatformType> onPlayerFormChange = new UnityEvent<PlatformType>();
@@ -23,7 +24,7 @@ public class Transformation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(transformButton))
+        if (Input.GetKeyDown(transformButton) && !isTransformDisabled)
         {
             changeForm();
         }
@@ -44,5 +45,27 @@ public class Transformation : MonoBehaviour
             spriteRenderer.sprite = demonSprite;
         }
         /*also add logic for changing the properties of movement depending on form*/
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag.Equals("Platform"))
+        {
+            if (collision.GetComponent<Platform>().IsDisabled)
+            {
+                isTransformDisabled = true;
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag.Equals("Platform"))
+        {
+            if (collision.GetComponent<Platform>().IsDisabled)
+            {
+                isTransformDisabled = false;
+            }
+        }
     }
 }
