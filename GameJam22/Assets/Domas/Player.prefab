@@ -11,14 +11,14 @@ GameObject:
   - component: {fileID: 7969885652123367011}
   - component: {fileID: 7969885652123367010}
   - component: {fileID: 5611472133286289093}
-  - component: {fileID: 7969885652123367009}
-  - component: {fileID: 7969885652123367008}
   - component: {fileID: 7969885652123367023}
   - component: {fileID: 7969885652123367022}
+  - component: {fileID: 7969885652123367009}
+  - component: {fileID: 7969885652123367008}
   - component: {fileID: 7969885652123367012}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,37 +107,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7969885652123367009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7969885652123367021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b6bfec15250746a6b16bd0818e31895, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundCheck: {fileID: 7969885652123367012}
-  jumpHeight: 1
-  horizontalSpeed: 1
-  cancelRate: 100
-  buttonTime: 0.5
---- !u!114 &7969885652123367008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7969885652123367021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0123d5554debf5029a4dbc9bcfc5fd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  angelSprite: {fileID: 21300000, guid: 19167aaa869a43419b5b5512320b51dd, type: 3}
-  demonSprite: {fileID: 21300000, guid: 4fcb09eb8d54cae33bc456d491d8632b, type: 3}
 --- !u!61 &7969885652123367023
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -185,6 +154,42 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &7969885652123367009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7969885652123367021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b6bfec15250746a6b16bd0818e31895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundCheck: {fileID: 7969885652123367012}
+  jumpHeight: 1
+  horizontalSpeed: 1
+  cancelRate: 100
+  buttonTime: 0.5
+--- !u!114 &7969885652123367008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7969885652123367021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0123d5554debf5029a4dbc9bcfc5fd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformButton: 98
+  angelSprite: {fileID: 21300000, guid: 19167aaa869a43419b5b5512320b51dd, type: 3}
+  demonSprite: {fileID: 21300000, guid: 4fcb09eb8d54cae33bc456d491d8632b, type: 3}
+  onPlayerFormChange:
+    m_PersistentCalls:
+      m_Calls: []
+  isAngel: 1
 --- !u!114 &7969885652123367012
 MonoBehaviour:
   m_ObjectHideFlags: 0

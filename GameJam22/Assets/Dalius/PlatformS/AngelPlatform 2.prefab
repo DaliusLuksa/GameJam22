@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -3994637998167627795}
   m_Layer: 0
   m_Name: AngelPlatform 2
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,4 +123,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformType: 1
+  platformSize: 0
   platformSpeed: 0

@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 26915778}
   m_Layer: 0
   m_Name: startBlock
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -522,6 +522,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7969885652123367009, guid: 0fa54cfa01e2df670ad915cf57d694ac, type: 3}
+      propertyPath: jumpHeight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7969885652123367009, guid: 0fa54cfa01e2df670ad915cf57d694ac, type: 3}
+      propertyPath: horizontalSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7969885652123367011, guid: 0fa54cfa01e2df670ad915cf57d694ac, type: 3}
       propertyPath: m_RootOrder
       value: 1

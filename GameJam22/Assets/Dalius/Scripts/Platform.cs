@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Platform : MonoBehaviour
 {
@@ -12,12 +10,16 @@ public class Platform : MonoBehaviour
     private float minX = -50;
 
     public Vector2 PlatformSize => new Vector2(platformSize, 0);
+    public PlatformType PlatformType => platformType;
 
     private void Start()
     {
         platformSpeed = PlatformSpawner.instance.CurrentPlatformSpeed;
 
         PlatformSpawner.instance.platformSpeedChange.AddListener(UpdateSpeed);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Transformation>().onPlayerFormChange.AddListener(ChangeCollision);
+
+        ChangeCollision(GameObject.FindGameObjectWithTag("Player").GetComponent<Transformation>().IsAngel ? PlatformType.Angel : PlatformType.Devil);
     }
 
     private void Update()
@@ -44,6 +46,26 @@ public class Platform : MonoBehaviour
         if (transform.position.x < minX)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void ChangeCollision(PlatformType currentType)
+    {
+        // if the platform type is Default
+        // just enable collision and return
+        if (platformType == PlatformType.Default)
+        {
+            GetComponent<BoxCollider2D>().enabled = true;
+            return;
+        }
+
+        if (platformType == currentType)
+        {
+            GetComponent<BoxCollider2D>().enabled = true;
+        }
+        else
+        {
+            GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 }
