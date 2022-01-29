@@ -9,6 +9,7 @@ public class GroundCheck : MonoBehaviour
     public Vector2 surfacePosition;
     ContactFilter2D filter;
     Collider2D[] results = new Collider2D[2];
+    [SerializeField] private GameObject gameoverScreen;
 
     private void Update()
     {
@@ -46,6 +47,10 @@ public class GroundCheck : MonoBehaviour
         else
         {
             isGrounded = false;
+        }
+        if (transform.position.y <= -20)
+        {
+            gameoverScreen.SetActive(true);
         }
     }
 }

@@ -70,10 +70,11 @@ public class Movement : MonoBehaviour
         {
             rb.AddForce(Vector2.down * cancelRate);
         }
-        else if (groundCheck.isGrounded && rb.velocity.y < 0) /*snap to ground when is falling*/
+        else if (groundCheck.isGrounded && rb.velocity.y <= 0) /*snap to ground when is falling*/
         {
             animator.SetBool("isFalling", false);
             rb.velocity = new Vector2(rb.velocity.x, 0);
+
             // transform.position = new Vector3(groundCheck.surfacePosition.x, groundCheck.surfacePosition.y, transform.position.z);
         }
 
