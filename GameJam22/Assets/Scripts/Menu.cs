@@ -17,6 +17,7 @@ public class Menu : MonoBehaviour
     public void CreditsButton()
     {
         // Open the credits menu
+        
     }
 
     public void ExitButton()
