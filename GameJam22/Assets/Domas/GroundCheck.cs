@@ -17,8 +17,31 @@ public class GroundCheck : MonoBehaviour
 
         if (Physics2D.OverlapBox(point, size, 0, filter.NoFilter(), results) > 1)
         {
-            isGrounded = true;
-            surfacePosition = Physics2D.ClosestPoint(transform.position, results[1]);
+
+            Platform suspectPlatform = null;
+            try
+            {
+                suspectPlatform = results[1].GetComponent<Platform>();
+                if (suspectPlatform == null)
+                {
+                    Collider2D temp = results[0];
+                    results[0] = results[1];
+                    results[1] = temp;
+
+                    suspectPlatform = results[1].GetComponent<Platform>();
+                }
+            }
+            catch (System.Exception) { }
+
+            if (suspectPlatform == null)
+            {
+                isGrounded = true;
+                surfacePosition = Physics2D.ClosestPoint(transform.position, results[1]);
+            }
+            else
+            {
+                isGrounded = !suspectPlatform.IsDisabled;
+            }
         }
         else
         {

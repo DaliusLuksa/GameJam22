@@ -32,8 +32,8 @@ public class Movement : MonoBehaviour
 
 
         transform.Translate(new Vector3(horizontalTranslation, 0, 0));
-        if (horizontalTranslation > 0 && spriteRenderer.flipX || horizontalTranslation < 0 && !spriteRenderer.flipX)
-            spriteRenderer.flipX = !spriteRenderer.flipX;
+        if (horizontalTranslation > 0 && transform.localScale.x < 0 || horizontalTranslation < 0 && transform.localScale.x > 0)
+            transform.localScale = new Vector3(transform.localScale.x * -1, 1, 1);
 
         if (Input.GetButtonDown("Jump") && groundCheck.isGrounded)
         {
@@ -74,7 +74,7 @@ public class Movement : MonoBehaviour
         {
             animator.SetBool("isFalling", false);
             rb.velocity = new Vector2(rb.velocity.x, 0);
-            transform.position = new Vector3(groundCheck.surfacePosition.x, groundCheck.surfacePosition.y, transform.position.z);
+            // transform.position = new Vector3(groundCheck.surfacePosition.x, groundCheck.surfacePosition.y, transform.position.z);
         }
 
     }
