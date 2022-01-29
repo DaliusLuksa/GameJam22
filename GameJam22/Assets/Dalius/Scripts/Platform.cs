@@ -11,7 +11,7 @@ public class Platform : MonoBehaviour
 
     public Vector2 PlatformSize => new Vector2(platformSize, 0);
     public PlatformType PlatformType => platformType;
-    public bool IsDisabled => GameObject.FindGameObjectWithTag("Player").GetComponent<Transformation>().IsAngel ? platformType != PlatformType.Angel : platformType != PlatformType.Devil;
+    public bool IsDisabled => platformType == PlatformType.Default ? false : GameObject.FindGameObjectWithTag("Player").GetComponent<Transformation>().IsAngel ? platformType != PlatformType.Angel : platformType != PlatformType.Devil;
 
     private void Start()
     {
