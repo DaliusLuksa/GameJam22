@@ -42,7 +42,7 @@ public class Movement : MonoBehaviour
         if (jumping)
         {
             jumpTime += Time.deltaTime;
-            if (Input.GetKeyUp(KeyCode.Space))
+            if (Input.GetButtonUp("Jump"))
             {
                 jumpCancelled = true;
             }
@@ -56,9 +56,13 @@ public class Movement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (jumpCancelled && jumping && rb.velocity.y > 0)
+        if (jumpCancelled && jumping && rb.velocity.y > 0) /*cancel jump*/
         {
             rb.AddForce(Vector2.down * cancelRate);
+        }
+        else if (groundCheck.isGrounded && rb.velocity.y < 0) /*snap to ground when is falling*/
+        {
+            transform.position = new Vector3(groundCheck.surfacePosition.x, groundCheck.surfacePosition.y, transform.position.z);
         }
 
     }
