@@ -7,7 +7,7 @@ public class ScoreCalculation : MonoBehaviour
     [SerializeField] private TextMeshProUGUI finalScoreText;
     [SerializeField] private GameObject gameoverScreen;
 
-    private float score = 0;
+    public float score { get; private set; } = 0;
     private bool isGameOver = false;
 
     private void Start()
