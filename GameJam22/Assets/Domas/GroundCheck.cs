@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GroundCheck : MonoBehaviour
 {
@@ -9,7 +10,11 @@ public class GroundCheck : MonoBehaviour
     public Vector2 surfacePosition;
     ContactFilter2D filter;
     Collider2D[] results = new Collider2D[2];
-    [SerializeField] private GameObject gameoverScreen;
+
+    [HideInInspector]
+    public UnityEvent onGameOver = new UnityEvent();
+
+    private bool isGameOver = false;
 
     private void Update()
     {
@@ -48,9 +53,11 @@ public class GroundCheck : MonoBehaviour
         {
             isGrounded = false;
         }
-        if (transform.position.y <= -20)
+
+        if (transform.position.y <= -20 && !isGameOver)
         {
-            gameoverScreen.SetActive(true);
+            isGameOver = true;
+            onGameOver.Invoke();
         }
     }
 }

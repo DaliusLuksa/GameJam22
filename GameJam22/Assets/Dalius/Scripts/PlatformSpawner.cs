@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -18,6 +17,8 @@ public class PlatformSpawner : MonoBehaviour
 
     private GameObject lastSpawnedPlatform = null;
 
+    private bool isGameOver = false;
+
     public float CurrentPlatformSpeed => currentPlatformSpeed;
 
     private void Awake()
@@ -32,11 +33,19 @@ public class PlatformSpawner : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<GroundCheck>().onGameOver.AddListener(GameOver);
+    }
+
     private void Update()
     {
-        SpawnPlatform();
+        if (!isGameOver)
+        {
+            SpawnPlatform();
 
-        IncreasePlatformSpeed();
+            IncreasePlatformSpeed();
+        }
     }
 
     private void SpawnPlatform()
@@ -72,5 +81,10 @@ public class PlatformSpawner : MonoBehaviour
             currentPlatformSpeed = newSpeed;
             platformSpeedChange.Invoke(currentPlatformSpeed);
         }
+    }
+
+    private void GameOver()
+    {
+        isGameOver = true;
     }
 }
