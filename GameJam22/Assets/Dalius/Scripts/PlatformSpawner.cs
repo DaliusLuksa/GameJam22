@@ -9,6 +9,8 @@ public class PlatformSpawner : MonoBehaviour
     [SerializeField] private List<GameObject> DevilPlatformPrefabs;
     [SerializeField] private List<GameObject> AngelPlatformPrefabs;
     [SerializeField] private float currentPlatformSpeed = 2;
+    [SerializeField] private float timeTillSpeedup = 10;
+    [SerializeField] private float speedupAmount = 2;
     [SerializeField] private float spawnPointX;
     [SerializeField] private KeyCode increasePlatformSpeedKey = KeyCode.H;
 
@@ -18,6 +20,7 @@ public class PlatformSpawner : MonoBehaviour
     private GameObject lastSpawnedPlatform = null;
 
     private bool isGameOver = false;
+    private float currSpeedupTime = 0;
 
     public float CurrentPlatformSpeed => currentPlatformSpeed;
 
@@ -40,11 +43,19 @@ public class PlatformSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (!isGameOver)
+        if (isGameOver) { return; }
+
+        SpawnPlatform();
+
+        if (currSpeedupTime <= 0)
         {
-            SpawnPlatform();
+            currSpeedupTime = timeTillSpeedup;
 
             IncreasePlatformSpeed();
+        }
+        else
+        {
+            currSpeedupTime -= Time.deltaTime;
         }
     }
 
@@ -75,12 +86,9 @@ public class PlatformSpawner : MonoBehaviour
 
     private void IncreasePlatformSpeed()
     {
-        if (Input.GetKeyDown(increasePlatformSpeedKey))
-        {
-            var newSpeed = Random.Range(currentPlatformSpeed, currentPlatformSpeed + 1);
-            currentPlatformSpeed = newSpeed;
-            platformSpeedChange.Invoke(currentPlatformSpeed);
-        }
+        var newSpeed = Random.Range(currentPlatformSpeed, currentPlatformSpeed + speedupAmount);
+        currentPlatformSpeed = newSpeed;
+        platformSpeedChange.Invoke(currentPlatformSpeed);
     }
 
     private void GameOver()

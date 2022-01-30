@@ -53,6 +53,8 @@ MonoBehaviour:
   - {fileID: 3840699819517737339, guid: 7169b55c1dc1b33458882dee8e23ca63, type: 3}
   - {fileID: 7297958742503181640, guid: e6d4c589eeec9d34cb1029b0ba8cccbb, type: 3}
   currentPlatformSpeed: 6
+  timeTillSpeedup: 10
+  speedupAmount: 2
   spawnPointX: 30
   increasePlatformSpeedKey: 104
   platformSpeedChange:
@@ -70,3 +72,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae0e3e673abd01a4b8c5d3be99a8240d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 0}
+  finalScoreText: {fileID: 0}
+  gameoverScreen: {fileID: 0}
