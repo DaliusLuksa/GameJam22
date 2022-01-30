@@ -12,7 +12,6 @@ public class PlatformSpawner : MonoBehaviour
     [SerializeField] private float timeTillSpeedup = 10;
     [SerializeField] private float speedupAmount = 2;
     [SerializeField] private float spawnPointX;
-    [SerializeField] private KeyCode increasePlatformSpeedKey = KeyCode.H;
 
     [HideInInspector]
     public UnityEvent<float> platformSpeedChange = new UnityEvent<float>();

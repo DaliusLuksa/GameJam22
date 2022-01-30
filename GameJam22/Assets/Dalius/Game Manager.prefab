@@ -56,7 +56,7 @@ MonoBehaviour:
   timeTillSpeedup: 10
   speedupAmount: 2
   spawnPointX: 30
-  increasePlatformSpeedKey: 104
+  increasePlatformSpeedKey: 113
   platformSpeedChange:
     m_PersistentCalls:
       m_Calls: []
